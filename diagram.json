@@ -1,0 +1,394 @@
+{
+  "version": 1,
+  "author": "FocusSync Team",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "id": "esp",
+      "type": "wokwi-esp32-devkit-v1",
+      "top": 260,
+      "left": 380,
+      "attrs": {}
+    },
+    {
+      "id": "dht22",
+      "top": -40,
+      "left": -60,
+      "type": "wokwi-dht22",
+      "attrs": {}
+    },
+    {
+      "id": "ldr1",
+      "top": -40,
+      "left": 140,
+      "type": "wokwi-photoresistor-sensor",
+      "attrs": {}
+    },
+    {
+      "id": "soundpot",
+      "top": -60,
+      "left": 340,
+      "type": "wokwi-potentiometer",
+      "attrs": {
+        "value": "30"
+      }
+    },
+    {
+      "id": "mq135",
+      "top": -40,
+      "left": 540,
+      "type": "wokwi-gas-sensor",
+      "attrs": {
+        "ppm": "400"
+      }
+    },
+    {
+      "id": "pir1",
+      "top": -30,
+      "left": 760,
+      "type": "wokwi-pir-motion-sensor",
+      "attrs": {}
+    },
+    {
+      "id": "oled1",
+      "top": 60,
+      "left": 900,
+      "type": "board-ssd1306",
+      "scale": 1.7,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "id": "relay1",
+      "top": 560,
+      "left": -60,
+      "type": "wokwi-relay-module",
+      "attrs": {}
+    },
+    {
+      "id": "fanled",
+      "top": 700,
+      "left": -20,
+      "type": "wokwi-led",
+      "attrs": {
+        "color": "blue",
+        "label": "FAN"
+      }
+    },
+    {
+      "id": "r_fan",
+      "top": 660,
+      "left": 0,
+      "rotate": 90,
+      "type": "wokwi-resistor",
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "id": "led1",
+      "top": 620,
+      "left": 220,
+      "type": "wokwi-led",
+      "attrs": {
+        "color": "yellow",
+        "label": "LAMP"
+      }
+    },
+    {
+      "id": "r_led1",
+      "top": 660,
+      "left": 250,
+      "rotate": 90,
+      "type": "wokwi-resistor",
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "id": "buzzer1",
+      "top": 600,
+      "left": 460,
+      "type": "wokwi-buzzer",
+      "attrs": {
+        "volume": "0.1"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:3V3",
+      "dht22:VCC",
+      "red",
+      [
+        "v-20",
+        "h-40"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "dht22:GND",
+      "black",
+      [
+        "v-10",
+        "h-60"
+      ]
+    ],
+    [
+      "dht22:SDA",
+      "esp:D4",
+      "green",
+      [
+        "v-10",
+        "h20"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "ldr1:VCC",
+      "red",
+      [
+        "v-40",
+        "h-80"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "ldr1:GND",
+      "black",
+      [
+        "v-30",
+        "h-90"
+      ]
+    ],
+    [
+      "ldr1:AO",
+      "esp:D34",
+      "orange",
+      [
+        "v20",
+        "h20"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "soundpot:VCC",
+      "red",
+      [
+        "v-60",
+        "h-100"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "soundpot:GND",
+      "black",
+      [
+        "v-50",
+        "h-110"
+      ]
+    ],
+    [
+      "soundpot:SIG",
+      "esp:D35",
+      "orange",
+      [
+        "v30",
+        "h10"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "mq135:VCC",
+      "red",
+      [
+        "v-70",
+        "h60"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "mq135:GND",
+      "black",
+      [
+        "v-60",
+        "h50"
+      ]
+    ],
+    [
+      "mq135:AO",
+      "esp:D32",
+      "orange",
+      [
+        "v20",
+        "h-20"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "pir1:VCC",
+      "red",
+      [
+        "v-90",
+        "h90"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "pir1:GND",
+      "black",
+      [
+        "v-80",
+        "h80"
+      ]
+    ],
+    [
+      "pir1:OUT",
+      "esp:D27",
+      "purple",
+      [
+        "v20",
+        "h-30"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "oled1:VCC",
+      "red",
+      [
+        "h140",
+        "v-90"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "oled1:GND",
+      "black",
+      [
+        "h150",
+        "v-80"
+      ]
+    ],
+    [
+      "oled1:SDA",
+      "esp:D21",
+      "yellow",
+      [
+        "v10",
+        "h-20"
+      ]
+    ],
+    [
+      "oled1:SCL",
+      "esp:D22",
+      "blue",
+      [
+        "v20",
+        "h-30"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "relay1:VCC",
+      "red",
+      [
+        "v40",
+        "h-30"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "relay1:GND",
+      "black",
+      [
+        "v50",
+        "h-40"
+      ]
+    ],
+    [
+      "relay1:IN",
+      "esp:D26",
+      "purple",
+      [
+        "v-10",
+        "h20"
+      ]
+    ],
+    [
+      "relay1:COM",
+      "esp:3V3",
+      "red",
+      [
+        "v20",
+        "h-10"
+      ]
+    ],
+    [
+      "relay1:NO",
+      "fanled:A",
+      "blue",
+      [
+        "v40",
+        "h10"
+      ]
+    ],
+    [
+      "fanled:C",
+      "r_fan:1",
+      "black",
+      []
+    ],
+    [
+      "r_fan:2",
+      "esp:GND.1",
+      "black",
+      [
+        "v-30",
+        "h-10"
+      ]
+    ],
+    [
+      "esp:D25",
+      "led1:A",
+      "green",
+      [
+        "v40",
+        "h-20"
+      ]
+    ],
+    [
+      "led1:C",
+      "r_led1:1",
+      "black",
+      []
+    ],
+    [
+      "r_led1:2",
+      "esp:GND.1",
+      "black",
+      [
+        "v-40",
+        "h20"
+      ]
+    ],
+    [
+      "esp:D13",
+      "buzzer1:2",
+      "purple",
+      [
+        "v30",
+        "h10"
+      ]
+    ],
+    [
+      "buzzer1:1",
+      "esp:GND.1",
+      "black",
+      [
+        "v-30",
+        "h-10"
+      ]
+    ]
+  ]
+}
